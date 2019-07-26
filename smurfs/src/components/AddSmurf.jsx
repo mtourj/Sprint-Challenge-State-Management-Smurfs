@@ -6,11 +6,39 @@ const AddSmurf = props => {
   const [state, setState] = useState({
     name: '',
     age: '',
-    height: ''
+    height: '',
+    error: ''
   })
+
+  const setError = error => {
+    setState({
+      ...state,
+      error
+    })
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    if(!state.name.trim()){
+      setError('Name is required!');
+      return;
+    }
+    if(!state.age.trim()){
+      setError('Age is required!');
+      return;
+    }
+    if(!state.height.trim()){
+      setError('Height is required!');
+      return;
+    }
+
+    setState({
+      ...state,
+      name: state.name.trim(),
+      age: state.age.trim(),
+      height: state.height.trim()
+    })
 
     props.postSmurf({...state,
     height: `${state.height}cm`})
@@ -20,7 +48,8 @@ const AddSmurf = props => {
   const handleChanges = event => {
     setState({
       ...state,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      error: ''
     })
   }
 
@@ -37,8 +66,12 @@ const AddSmurf = props => {
       <label>
         <span className='label'>Height:</span>
         <input name='height' type='number' value={state.height} onChange={handleChanges} />
+        <span className='cm-label'>cm</span>
       </label>
-      <button type='submit'>Submit</button>
+      <button type='submit'>SUBMIT</button>
+      {
+        state.error ? <div className='error'>{state.error}</div> : ''
+      }
     </form>
   );
 };

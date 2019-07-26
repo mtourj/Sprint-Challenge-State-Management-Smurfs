@@ -40,6 +40,7 @@ export const postSmurf = smurf => dispatch => {
     })
   })
   .catch(err => {
+    alert(err.message);
     dispatch({
       type: POST_SMURF_FAILURE,
       payload: err.message

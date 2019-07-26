@@ -15,4 +15,43 @@
   margin: 3px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.add-smurf input {
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.add-smurf .cm-label {
+  color: gray;
+  position: absolute;
+  transform: translateX(230px);
+}
+
+.add-smurf button {
+  border: 0;
+  margin-top: 8px;
+  padding: 9px;
+  color: white;
+  background-color: slateblue;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+.add-smurf button:hover {
+  background-color: blueviolet;
+}
+
+.error {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid crimson;
+  background-color: rgb(247, 230, 233);
+  color: red;
 }
