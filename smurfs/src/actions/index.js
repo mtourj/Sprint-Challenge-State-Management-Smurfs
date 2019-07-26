@@ -13,7 +13,7 @@ export const getSmurfs = () => dispatch => {
   dispatch({
     type: GET_SMURFS_START
   })
-  axios.get(SMURF_ENDPOINT)
+  return axios.get(SMURF_ENDPOINT)
   .then(res => {
     dispatch({
       type: GET_SMURFS_SUCCESS,
@@ -32,7 +32,7 @@ export const postSmurf = smurf => dispatch => {
   dispatch({
     type: POST_SMURF_START
   })
-  axios.post(SMURF_ENDPOINT, smurf)
+  return axios.post(SMURF_ENDPOINT, smurf)
   .then(res => {
     console.log(res);
     dispatch({
