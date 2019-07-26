@@ -15,17 +15,15 @@ export const getSmurfs = () => dispatch => {
   })
   axios.get(SMURF_ENDPOINT)
   .then(res => {
-    console.log(res);
     dispatch({
       type: GET_SMURFS_SUCCESS,
       payload: res.data
     })
   })
   .catch(err => {
-    console.log(err);
     dispatch({
       type: GET_SMURFS_FAILURE,
-      payload: err.response
+      payload: err.message
     })
   })
 }
@@ -42,10 +40,9 @@ export const postSmurf = smurf => dispatch => {
     })
   })
   .catch(err => {
-    console.log(err);
     dispatch({
       type: POST_SMURF_FAILURE,
-      payload: err.response
+      payload: err.message
     })
   })
 }

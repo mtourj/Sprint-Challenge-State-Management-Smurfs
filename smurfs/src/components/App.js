@@ -5,12 +5,14 @@ import { Route } from 'react-router-dom';
 
 import Smurfs from './Smurfs';
 import AddSmurf from './AddSmurf';
+import Navbar from './Navbar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path='/' render={props => <Smurfs {...props} />} />
+        <Navbar />
+        <Route exact path='/' render={props => <Smurfs {...props} />} />
         <Route path='/add' render={props => <AddSmurf {...props}/> } />
       </div>
     );
