@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './AddSmurf.css';
+
 const AddSmurf = props => {
   const [state, setState] = useState({
     name: '',
@@ -10,7 +12,8 @@ const AddSmurf = props => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    props.postSmurf({...state})
+    props.postSmurf({...state,
+    height: `${state.height}cm`})
     .then(props.history.push('/'))
   }
 
@@ -24,16 +27,16 @@ const AddSmurf = props => {
   return (
     <form onSubmit={handleSubmit} className='add-smurf'>
       <label>
-        Name:
-        <input name='name' value={state.name} onChange={handleChanges} />
+        <span className='label'>Name:</span>
+        <input name='name' type='text' value={state.name} onChange={handleChanges} />
       </label>
       <label>
-        Age:
-        <input name='age' value={state.age} onChange={handleChanges} />
+        <span className='label'>Age:</span>
+        <input name='age' type='number' value={state.age} onChange={handleChanges} />
       </label>
       <label>
-        Height:
-        <input name='height' value={state.height} onChange={handleChanges} />
+        <span className='label'>Height:</span>
+        <input name='height' type='number' value={state.height} onChange={handleChanges} />
       </label>
       <button type='submit'>Submit</button>
     </form>
