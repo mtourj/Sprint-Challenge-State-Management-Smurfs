@@ -5,7 +5,8 @@ const initialState = {
   gettingSmurfs: false,
   getSmurfsError: '',
   postingSmurf: false,
-  postSmurfError: ''
+  postSmurfError: '',
+  deleting: -1
 }
 
 const reducer = (state = initialState, action) => {
@@ -49,6 +50,25 @@ const reducer = (state = initialState, action) => {
         ...state,
         postingSmurf: false,
         postSmurfError: action.payload
+      }
+    }
+    case actions.DELETE_SMURF_START : {
+      return {
+        ...state,
+        deleting: action.payload
+      }
+    }
+    case actions.DELETE_SMURF_SUCCESS : {
+      return {
+        ...state,
+        deleting: -1,
+        smurfs: action.payload
+      }
+    }
+    case actions.DELETE_SMURF_FAILURE : {
+      return {
+        ...state,
+        deleting: -1
       }
     }
     default : {

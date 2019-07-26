@@ -8,6 +8,9 @@ export const GET_SMURFS_FAILURE = 'GET_SMURFS_FAILURE';
 export const POST_SMURF_START = 'POST_SMURF_START';
 export const POST_SMURF_SUCCESS = 'POST_SMURF_SUCCESS';
 export const POST_SMURF_FAILURE = 'POST_SMURF_FAILURE';
+export const DELETE_SMURF_START = 'DELETE_SMURF_START';
+export const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_START';
+export const DELETE_SMURF_FAILURE = 'DELETE_SMURF_FAILURE';
 
 export const getSmurfs = () => dispatch => {
   dispatch({
@@ -44,6 +47,27 @@ export const postSmurf = smurf => dispatch => {
     dispatch({
       type: POST_SMURF_FAILURE,
       payload: err.message
+    })
+  })
+}
+
+export const deleteSmurf = id => dispatch => {
+  dispatch({
+    type: DELETE_SMURF_START,
+    payload: id
+  })
+  return axios.delete(`${SMURF_ENDPOINT}/${id}`)
+  .then(res => {
+    console.log(res);
+    dispatch({
+      type: DELETE_SMURF_SUCCESS,
+      payload: res.data
+    })
+  })
+  .catch(err => {
+    console.log(err.message);
+    dispatch({
+      type: DELETE_SMURF_FAILURE
     })
   })
 }
