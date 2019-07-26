@@ -1,0 +1,28 @@
+.navbar {
+  height: 48px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.navbar .nav-link {
+  margin: 0 8px;
+  text-decoration: none;
+  color: white;
+  background-color: lightgray;
+  padding: 12px;
+  border-radius: 9px;
+
+  transition: background-color 0.2s;
+}
+
+.navbar .nav-link:hover {
+  background-color: rgb(139, 136, 161);
+}
+
+.navbar .nav-link.active {
+  background-color: slateblue;
+}

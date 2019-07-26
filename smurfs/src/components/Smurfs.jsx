@@ -6,6 +6,8 @@ import { getSmurfs } from '../actions';
 
 import Smurf from './Smurf';
 
+import './Smurfs.css';
+
 const Smurfs = props => {
 
   const fetchSmurfs = () => {

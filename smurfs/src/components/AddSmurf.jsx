@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 
-import { connect } from 'react-redux';
-
-import { postSmurf } from '../actions';
-
 const AddSmurf = props => {
   const [state, setState] = useState({
     name: '',
@@ -43,7 +39,4 @@ const AddSmurf = props => {
     </form>
   );
 };
-
-const mapStateToProps = state => ({...state});
-
-export default connect(mapStateToProps, { postSmurf } )(AddSmurf);
+export default AddSmurf;
